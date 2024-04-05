@@ -1,6 +1,6 @@
 ,gun_name,gun_img,size,color,price,description,ammo,availability
-1
-2
+1,Rossberg Space Shotgun,Gun_Images\gun1.jpg,Medium,Black,3000 Space Gold,This sturdy shotgun can obliterate anything...and anyone.,Buckshot,Available
+2,The Moosalasa Pistol,Gun_Images\gun2.jpg
 3
 4
 5
