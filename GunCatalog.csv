@@ -1,41 +1,80 @@
-,gun_name,gun_img,size,color,price,description,ammo,availability
-1,Rossberg Space Shotgun,Gun_Images\gun1.jpg,Medium,Black,3000 Space Gold,This sturdy shotgun can obliterate anything...and anyone.,Buckshot,Available
-2,The Moosalasa Pistol,Gun_Images\gun2.jpg
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
+﻿gun_name,gun_img,type,size,colors,price,description,ammo,availability
+Rossberg Space Shotgun,Gun_Images\gun1.jpg,Shotgun,Medium,Black,4200 Space Dollars,Can blast through anything…and anyone.,Buckshot,This product is available.
+The Pluto Peashooter,Gun_Images\gun2.jpg,Pistol,Small,Blue,565 Space Dollars,This slim little firearm can be hidden anywhere.,Laser Crystals,This product is available.
+Rhimoon Cannon,Gun_Images\gun3.jpg,Pistol,Small,White,800 Space Dollars,Small yet effiecient. Has a nasty kickback though.,Ice Crystals,This product is not available.
+Space Cadet Blaster,Gun_Images\gun4.jpg,Pistol,Small,Red,100 Space Dollars,"What it lacks in size it makes up in…actually nevermind, this gun is cheap for a reason.",Pellets,This product is available.
+The Hotshot 2000,Gun_Images\gun5.jpg,Pistol,Small,Silver,999 Space Dollars,"Sure to ""light"" up any party, heh heh heh.",Laser Crystals,This product is not available.
+The Magna-Rifle 4.0,Gun_Images\gun6.jpg,Rifle,Medium,Black,1500 Space Dollars,The ammo magazine actually works like a second barrel. Neat!,Photon Chargers,This product is available.
+The Emmisary,Gun_Images\gun7.jpg,Rifle,Medium,Silver,1800 Space Dollars,"A gun perfect for atomizing your foes, leaving no evidence behind.",Plasma Pods,This product is available.
+AstroBlaster,Gun_Images\gun8.jpg,Rifle,Medium,Silver,4000 Space Dollars,Your dream of shooting a laser from your hand can now come true!,Laser Crystals,This product is available.
+The Charger,Gun_Images\gun9.jpg,Pistol,Small,Black,788 Space Dollars,A pecuiliar gun. Holding the trigger actually charges up a powerful blast. Its effectiveness is questionable in a battle though.,Photon Chargers,This product is available.
+Space Sixty-six Shooter,Gun_Images\gun10.jpg,Revolver,Small,Black,899 Space Dollars,"Used by Space Sheriffs all over the galaxy, this gun can be utilized by desperados as wells.",Revolver Bullets,This product is not available.
+The False Wrench,Gun_Images\gun11.jpg,Other,Small,Yellow,550 Space Dollars,"Sneaky gun, this one. It looks like a space wrench at first, but little do your enemies know it can pack some heat.",Laser Crystals,This product is not available.
+The Little Jimmy,Gun_Images\gun12.jpg
+The Omega Turret,Gun_Images\gun13.jpg
+The Prism Pistol,Gun_Images\gun14.jpg
+The Magma Blaster,Gun_Images\gun15.jpg
+Space Marine Assault Rifle,Gun_Images\gun16.jpg
+Spinning Vortexes,Gun_Images\gun17.jpg
+,Gun_Images\gun18.jpg
+,Gun_Images\gun19.jpg
+,Gun_Images\gun20.jpg
+,Gun_Images\gun21.jpg
+,Gun_Images\gun22.jpg
+,Gun_Images\gun23.jpg
+,Gun_Images\gun24.jpg
+,Gun_Images\gun25.jpg
+,Gun_Images\gun26.jpg
+,Gun_Images\gun27.jpg
+,Gun_Images\gun28.jpg
+,Gun_Images\gun29.jpg
+,Gun_Images\gun30.jpg
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
