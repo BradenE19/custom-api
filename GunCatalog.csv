@@ -1,4 +1,4 @@
-﻿gun_name,gun_img,type,size,colors,price,description,ammo,availability,,,,,,,
+﻿gun_name,gun_img,type,size,colors,price,description,ammo,availability
 Rossberg Space Shotgun,Gun_Images\gun1.jpg,Shotgun,Medium,Black,4200 Space Dollars,Can blast through anything…and anyone.,Buckshot,This product is available.,,,,,,,
 The Pluto Peashooter,Gun_Images\gun2.jpg,Pistol,Small,Blue,565 Space Dollars,This slim little firearm can be hidden anywhere.,Laser Crystals,This product is available.,,,,,,,
 Rhimoon Cannon,Gun_Images\gun3.jpg,Pistol,Small,White,800 Space Dollars,Small yet effiecient. Has a nasty kickback though.,Ice Crystals,This product is not available.,,,,,,,
