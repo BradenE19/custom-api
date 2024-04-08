@@ -10,7 +10,7 @@ fs.readFile(csvFile, 'utf8', (err, data) => {
 
     const lines = data.split('\n');
     lines.forEach((line) => {
-        const gun = line.split(',');
+        const gun = parseCsvLine(line);
         console.log(`{
   'gun_name': '${gun[0]}',
   gun_img: '${gun[1]}',
@@ -24,3 +24,23 @@ fs.readFile(csvFile, 'utf8', (err, data) => {
 }`);
     });
 });
+
+function parseCsvLine(line) {
+    const values = [];
+    let current = '';
+    let insideQuotes = false;
+
+    for (const char of line) {
+        if (char === '"') {
+            insideQuotes = !insideQuotes;
+        } else if (char === ',' && !insideQuotes) {
+            values.push(current.trim());
+            current = '';
+        } else {
+            current += char;
+        }
+    }
+
+    values.push(current.trim());
+    return values;
+}
