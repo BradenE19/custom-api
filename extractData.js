@@ -1,10 +1,11 @@
+const fs = require('fs');
+const csv = require('csv-parser');
+const mysql = require('mysql');
+
+// Logger class for logging events
 class Logger {
     static log(message) {
         console.log(`[INFO] ${new Date().toISOString()} - ${message}`);
-    }
-
-    static warn(message) {
-        console.warn(`[WARNING] ${new Date().toISOString()} - ${message}`);
     }
 
     static error(message) {
@@ -12,65 +13,39 @@ class Logger {
     }
 }
 
-const fs = require('fs');
-const mysql = require('mysql');
-
 // MySQL database connection configuration
 const connection = mysql.createConnection({
-    host: 'your_host',
-    user: 'your_username',
-    password: 'your_password',
-    database: 'your_database'
+    host: '127.0.0.1',
+    user: 'root',
+    password: 'Cowboys1&',
+    database: 'galacticmarketdatabase'
 });
 
-// Connect to the database
+// Connect to MySQL database
 connection.connect((err) => {
     if (err) {
-        Logger.error('Error connecting to MySQL: ' + err.message);
-        return;
+      console.error('Error connecting to MySQL:', err);
+      return;
     }
-    Logger.log('Connected to MySQL database');
-});
-
-const csvFile = 'GunCatalog.csv';
-
-fs.readFile(csvFile, 'utf8', (err, data) => {
-    if (err) {
-        Logger.error('Error reading the file: ' + err.message);
-        return;
-    }
-
-    const lines = data.split('\n');
-    lines.forEach((line) => {
-        const gun = parseCsvLine(line);
-        // Insert the data into the MySQL table
-        const sql = `INSERT INTO your_table_name (gun_name, gun_img, type, size, colors, price, description, ammo, availability) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-        connection.query(sql, gun, (err, result) => {
-            if (err) {
-                Logger.error('Error inserting data into MySQL: ' + err.message);
-                return;
-            }
-            Logger.log('Data inserted into MySQL: ' + JSON.stringify(result));
-        });
-    });
-});
-
-function parseCsvLine(line) {
-    const values = [];
-    let current = '';
-    let insideQuotes = false;
-
-    for (const char of line) {
-        if (char === '"') {
-            insideQuotes = !insideQuotes;
-        } else if (char === ',' && !insideQuotes) {
-            values.push(current.trim());
-            current = '';
-        } else {
-            current += char;
+    console.log('Connected to MySQL database');
+  });
+  
+  // Read the CSV file and insert data into MySQL database
+  fs.createReadStream('GunCatalog.csv')
+    .pipe(csv())
+    .on('data', (row) => {
+      const { gun_name, gun_img, type, size, colors, price, description, ammo, availability } = row;
+      const sql = `INSERT INTO gunstable (gun_name, gun_img, type, size, colors, price, description, ammo, availability) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+      connection.query(sql, [gun_name, gun_img, type, size, colors, price, description, ammo, availability], (err, result) => {
+        if (err) {
+          console.error('Error inserting data into MySQL:', err);
+          return;
         }
-    }
-
-    values.push(current.trim());
-    return values;
-}
+        console.log('Data inserted into MySQL:', result);
+      });
+    })
+    .on('end', () => {
+      console.log('CSV file successfully processed');
+      // Close MySQL connection
+      connection.end();
+    });
