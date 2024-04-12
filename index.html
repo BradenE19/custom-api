@@ -3,47 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Page</title>
+  <title>Space Gun Catalog</title>
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <header class="header container">
-        <div class="container welcomebox">
-            <div>
-                <div><h1>Welcome to the Galactic Black Market</h1></div>
-                <div><p>We sell a variety of dangerous and powerful space guns to assist with your less than legal needs. Type in the search bar below for what you would like.</p></div>
-            </div>
-            <!-- Search Bar -->
-<div class="container headerbox">
-    <div class="container headerbox text-center"> <!-- Added 'text-center' class to center the search bar -->
-        <form class="form-inline my-4 d-flex justify-content-center"> <!-- Added 'd-flex justify-content-center' classes to center the form -->
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 400px;"> <!-- Adjusted width to make the search bar longer -->
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-    
-</header>
-<body class="container-fluid">
-    <div class="container searcharea container-lg">
-        <div class="searchbox container-fluid row">
-            <div class="gunimgdiv col-lg"><img src="Gun_Images\gun1.jpg" width="400px" alt=""></div>
-            <div class="guninfodiv col-lg">
-                    <div class="textdiv row">
-                    <p class="col-12">"Gun Name goes here"</p>
-                    <p class="col-12">"Description goes here"</p>
-                    <p class="col-lg">"Price goes here"</p>
-                    <p class="col-lg">Availabillity goes here"</p>
-                    </div>
-            </div>
-        </div>
-    </div>
-</body>
 
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Space Gun Catalog</a>
+</nav>
+
+<!-- Container for search bar -->
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchGuns()">Search</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for searching guns -->
+<script>
+  function searchGuns() {
+    const searchText = document.getElementById('searchInput').value.toLowerCase();
+    const gunCards = document.querySelectorAll('.gun-card');
+
+    gunCards.forEach(card => {
+      const gunName = card.querySelector('.card-title').innerText.toLowerCase();
+      if (gunName.includes(searchText)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+<!-- Container for displaying space guns -->
+<div class="container mt-4">
+  <div class="row" id="gunContainer">
+    <!-- Gun cards will be dynamically inserted here -->
+  </div>
+</div>
+
+<!-- jQuery, Popper.js, Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
