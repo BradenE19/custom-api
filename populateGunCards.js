@@ -26,11 +26,10 @@ async function handleDropdownChange() {
     // Fetch filtered data from the server based on selected options
     const size = document.getElementById('sizeDropdown').value;
     const availability = document.getElementById('availabilityDropdown').value;
-    console.log('Size:', size); // Add these lines
-    console.log('Availability:', availability);
     const type = document.getElementById('typeDropdown').value;
     const ammo = document.getElementById('ammoDropdown').value;
     const colors = document.getElementById('colorDropdown').value;
+
 
     try {
         const response = await fetch(`/api/guns?size=${size}&availability=${availability}&type=${type}&ammo=${ammo}&colors=${colors}`);
