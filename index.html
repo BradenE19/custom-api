@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search Bar with Dropdown Menus</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
   <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+  <script src="getColors.js"></script>
+  <script src="populateGunCards.js"></script>
+  <script src="getType.js"></script>
+  <script src="getSize.js"></script>
+  <script src="getAvailability.js"></script>
+  <script src="getAmmo.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -23,13 +29,13 @@
                 <div class="row">
                   <div class="col-2">
                     <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="colorDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         Colors
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#" data-color="Red red">Red</a></li>
-                        <li><a class="dropdown-item" href="#">Blue</a></li>
-                        <li><a class="dropdown-item" href="#">White</a></li>
+                        <li><a class="dropdown-item" id="redColor" href="#">Red</a></li>
+                        <li><a class="dropdown-item" id="blueColor" href="#">Blue</a></li>
+                        <li><a class="dropdown-item" id="whiteColor" href="#">White</a></li>
                         <li><a class="dropdown-item" href="#">Green</a></li>
                         <li><a class="dropdown-item" href="#">Silver</a></li>
                         <li><a class="dropdown-item" href="#">Yellow</a></li>
@@ -92,6 +98,12 @@
               </div>
             </div>
           </div>
+
+          <!-- Container for displaying gun cards -->
+        <div id="gunCardsContainer" class="row">
+          <!-- Gun cards will be dynamically populated here -->
+      </div>
+  </div>
 
   <footer>
     <div>
