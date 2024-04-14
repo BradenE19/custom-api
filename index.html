@@ -18,92 +18,42 @@
 </head>
 <body>
     <body>
-        <div class="container">
-          <div class="content">
-            <div class="row justify-content-center mt-5">
-              <div class="col-lg-9">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-                  <button class="btn btn-outline-secondary" type="button" id="searchButton">Search</button>
-                </div>
-                <div class="row">
-                  <div class="col-2">
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="colorDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        Colors
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" id="redColor" href="#">Red</a></li>
-                        <li><a class="dropdown-item" id="blueColor" href="#">Blue</a></li>
-                        <li><a class="dropdown-item" id="whiteColor" href="#">White</a></li>
-                        <li><a class="dropdown-item" href="#">Green</a></li>
-                        <li><a class="dropdown-item" href="#">Silver</a></li>
-                        <li><a class="dropdown-item" href="#">Yellow</a></li>
-                        <li><a class="dropdown-item" href="#">Orange</a></li>
-                        <li><a class="dropdown-item" href="#">Gray</a></li>
-                        <li><a class="dropdown-item" href="#">Black</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-2">
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                        Size
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item" href="#">Option 1</a></li>
-                        <li><a class="dropdown-item" href="#">Option 2</a></li>
-                        <li><a class="dropdown-item" href="#">Option 3</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-2">
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                        Type
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item" href="#">Option 1</a></li>
-                        <li><a class="dropdown-item" href="#">Option 2</a></li>
-                        <li><a class="dropdown-item" href="#">Option 3</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-2">
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                        Ammo
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item" href="#">Option 1</a></li>
-                        <li><a class="dropdown-item" href="#">Option 2</a></li>
-                        <li><a class="dropdown-item" href="#">Option 3</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-2">
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                        Availability
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item" href="#">Option 1</a></li>
-                        <li><a class="dropdown-item" href="#">Option 2</a></li>
-                        <li><a class="dropdown-item" href="#">Option 3</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- Add more dropdowns as needed -->
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Container for displaying gun cards -->
-        <div id="gunCardsContainer" class="row">
-          <!-- Gun cards will be dynamically populated here -->
-      </div>
-  </div>
+      <div class="container mt-5">
+        <h1 class="mb-4">Galactic Black Market</h1>
+        <!-- Dropdown menus for each category -->
+        <div class="row">
+            <div class="col-md-3">
+                <select class="form-control" id="sizeDropdown">
+                    <option value="">Size</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" id="availabilityDropdown">
+                    <option value="">Availability</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" id="typeDropdown">
+                    <option value="">Type</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" id="ammoDropdown">
+                    <option value="">Ammo</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+              <select class="form-control" id="colorDropdown">
+                  <option value="">Color</option>
+              </select>
+          </div>
+        </div>
+        <!-- Container for displaying gun cards -->
+        <div id="gunCardsContainer" class="row mt-5">
+            <!-- Gun cards will be dynamically populated here -->
+        </div>
+    </div>
 
   <footer>
     <div>

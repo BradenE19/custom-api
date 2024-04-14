@@ -69,14 +69,76 @@ app.get('/script.js', (req, res) => {
 app.get('/getColors.js', (req, res) => {
   const getColorsPath = path.join(__dirname, 'getColors.js');
   console.log('getColors file path:', getColorsPath);
+  res.set('Content-Type', 'application/javascript'); // Set the Content-Type header
   res.sendFile(getColorsPath);
 });
+
+app.get('/getType.js', (req, res) => {
+  const getTypePath = path.join(__dirname, 'getType.js');
+  console.log('getType file path:', getTypePath);
+  res.sendFile(getTypePath);
+});
+
+app.get('/getAmmo.js', (req, res) => {
+  const getAmmoPath = path.join(__dirname, 'getAmmo.js');
+  console.log('getAmmo file path:', getAmmoPath);
+  res.sendFile(getAmmoPath);
+});
+
+app.get('/getAvailability.js', (req, res) => {
+  const getAvailabilityPath = path.join(__dirname, 'getAvailability.js');
+  console.log('getAvailability file path:', getAvailabilityPath);
+  res.sendFile(getAvailabilityPath);
+});
+
+app.get('/getColors.js', (req, res) => {
+  const getColorsPath = path.join(__dirname, 'getColors.js');
+  console.log('getColors file path:', getColorsPath);
+  res.set('Content-Type', 'application/javascript'); // Set the Content-Type header
+  res.sendFile(getColorsPath);
+});
+
+
+
+
+
+
+app.get('/api/colors', (req, res) => {
+  // Query the database or fetch colors data from wherever it's stored
+  const colors = ['Red', 'Blue', 'Green', 'Yellow', 'Orange', 'Silver']; // Example colors data
+  // Send the colors data as a response
+  res.json(colors);
+});
+
+app.get('/api/sizes', (req, res) => {
+  const sizes = ['Small', 'Medium', 'Large'];
+  // Logic to fetch size data from your database and send it as a response
+  res.json(sizes);
+});
+
+app.get('/api/availability', (req, res) => {
+  const availability = ['This product is available.', 'This product is not available.'];
+  // Logic to fetch size data from your database and send it as a response
+  res.json(availability);
+});
+
+app.get('/api/ammo', (req, res) => {
+  const ammo = ['Buckshot', 'Heavy Bullets', 'Flamer Fuel', 'Ice Crystals', 'Laser Crystals', 'Pellets', 'Photon Chargers', 'Pistol Ammo', 'Plasma Pods', "Revolver Bullets", 'Space Battery', 'The Sun(?)'];
+  // Logic to fetch size data from your database and send it as a response
+  res.json(ammo);
+});
+
+
+
+
 
 app.get('/populateGunCards.js', (req, res) => {
   const populateGunCardsPath = path.join(__dirname, 'populateGunCards.js');
   console.log('populateGunCards.js file path:', populateGunCardsPath);
   res.sendFile(populateGunCardsPath);
 });
+
+
 
 // Serve static files with custom headers
 app.use(express.static('custom-api', {
