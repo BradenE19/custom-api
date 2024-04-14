@@ -12,14 +12,6 @@ const connection = mysql.createConnection({
   database: 'galacticmarketdatabase'
 });
 
-app.use(express.static('custom-api'));
-
-// Specify the directory where your static files are located
-const staticFilesDirectory = path.join(__dirname, 'custom-api');
-
-// Serve static files from the specified directory
-app.use(express.static(staticFilesDirectory));
-
 // Connect to MySQL database
 connection.connect((err) => {
   if (err) {
@@ -29,11 +21,127 @@ connection.connect((err) => {
   console.log('Connected to MySQL database');
 });
 
-// Define the '/api/guns' endpoint
+// Serve static files from the 'custom-api' directory
+app.use(express.static(path.join(__dirname, 'custom-api')));
+
+// Route to serve the HTML file
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Route to serve the CSS file
+app.get('/styles.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'styles.css'));
+});
+
+// Route to serve the JavaScript files
+app.get('/script.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'script.js'));
+});
+
+// Route to serve the gunFilter.js file
+app.get('/gunFilter.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'gunFilter.js'));
+});
+
+app.get('/populateGunCards.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'populateGunCards.js'));
+});
+
+// Route to serve the populateDropdown.js file
+app.get('/populateDropdown.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'populateDropdown.js'));
+});
+
+app.get('/getSize.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'getSize.js'));
+});
+
+app.get('/api/size', (req, res) => {
+  const size = ['All', 'Small', 'Medium', 'Large'];
+  // Logic to fetch size data from your database and send it as a response
+  res.json(size);
+});
+
+app.get('/getColors.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'getColors.js'));
+});
+
+app.get('/api/colors', (req, res) => {
+  // Query the database or fetch colors data from wherever it's stored
+  const colors = ['All', 'Red', 'Black', 'Gray', 'Blue', 'Green', 'Pink', 'Yellow', 'Orange', 'Silver', 'White'];
+
+  // Send the colors data as a response
+  res.json(colors);
+});
+
+app.get('/getType.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'getType.js'));
+});
+
+app.get('/api/type', (req, res) => {
+  const type = ['All', 'Other', 'Machine Gun', 'Pistol', 'Revolver', 'Rifle', 'Shotgun'];
+  // Logic to fetch size data from your database and send it as a response
+  res.json(type);
+});
+
+app.get('/getAmmo.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'getAmmo.js'));
+});
+
+app.get('/api/ammo', (req, res) => {
+  const ammo = ['All', 'Buckshot', 'Heavy Bullets', 'Flamer Fuel', 'Ice Crystals', 'Laser Crystals', 'Pellets', 'Photon Chargers', 'Pistol Ammo', 'Plasma Pods', "Revolver Bullets", 'Space Battery', 'The Sun(?)'];
+  // Logic to fetch size data from your database and send it as a response
+  res.json(ammo);
+});
+
+app.get('/getAvailability.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'getAvailability.js'));
+});
+
+app.get('/api/availability', (req, res) => {
+  const availability = ['All', 'This product is available.', 'This product is not available.'];
+  // Logic to fetch size data from your database and send it as a response
+  res.json(availability);
+});
+
+// Route to fetch gun data with filtering
 app.get('/api/guns', (req, res) => {
-  // Query the database to fetch gun data
-  const query = 'SELECT * FROM gunstable';
-  connection.query(query, (error, results) => {
+  const { size, availability, type, ammo, color } = req.query;
+
+  // Build SQL query dynamically based on provided parameters
+  let query = 'SELECT * FROM gunstable WHERE 1=1'; // Start with a generic query
+  const params = [];
+
+  // Add conditions for filtering based on provided parameters
+  if (size && size !== 'All') {
+    query += ' AND size = ?';
+    params.push(size);
+  }
+  if (availability && availability !== 'All') {
+    query += ' AND availability = ?';
+    params.push(availability);
+  }
+  if (type && type !== 'All') {
+    query += ' AND type = ?';
+    params.push(type);
+  }
+  if (ammo && ammo !== 'All') {
+    query += ' AND ammo = ?';
+    params.push(ammo);
+  }
+  if (color && color !== 'All') {
+    query += ' AND color = ?';
+    params.push(color);
+  }
+
+  // If no filters are applied, return all guns
+  if (params.length === 0) {
+    query = 'SELECT * FROM gunstable';
+  }
+
+  // Execute the SQL query with the parameters
+  connection.query(query, params, (error, results) => {
     if (error) {
       console.error('Error querying database:', error);
       res.status(500).json({ error: 'Internal Server Error' });
@@ -41,133 +149,6 @@ app.get('/api/guns', (req, res) => {
     }
     res.json(results);
   });
-});
-
-
-// Define route handler for the root URL
-app.get('/', (req, res) => {
-  const indexPath = path.join(__dirname, 'index.html');
-  console.log('Index file path:', indexPath);
-  res.sendFile(indexPath);
-});
-
-// Define route handler for serving CSS file
-app.get('/styles.css', (req, res) => {
-  const stylesPath = path.join(__dirname, 'styles.css');
-  console.log('Stylesheet file path:', stylesPath);
-  res.sendFile(stylesPath);
-});
-
-// Define route handler for serving JavaScript file
-app.get('/script.js', (req, res) => {
-  const scriptPath = path.join(__dirname, 'script.js');
-  console.log('JavaScript file path:', scriptPath);
-  res.sendFile(scriptPath);
-});
-
-// Define route handler for serving getColors.js file
-app.get('/getColors.js', (req, res) => {
-  const getColorsPath = path.join(__dirname, 'getColors.js');
-  console.log('getColors file path:', getColorsPath);
-  res.set('Content-Type', 'application/javascript'); // Set the Content-Type header
-  res.sendFile(getColorsPath);
-});
-
-app.get('/getType.js', (req, res) => {
-  const getTypePath = path.join(__dirname, 'getType.js');
-  console.log('getType file path:', getTypePath);
-  res.sendFile(getTypePath);
-});
-
-app.get('/getAmmo.js', (req, res) => {
-  const getAmmoPath = path.join(__dirname, 'getAmmo.js');
-  console.log('getAmmo file path:', getAmmoPath);
-  res.sendFile(getAmmoPath);
-});
-
-app.get('/getAvailability.js', (req, res) => {
-  const getAvailabilityPath = path.join(__dirname, 'getAvailability.js');
-  console.log('getAvailability file path:', getAvailabilityPath);
-  res.sendFile(getAvailabilityPath);
-});
-
-
-app.get('/getSize.js', (req, res) => {
-  const getSizePath = path.join(__dirname, 'getSize.js');
-  console.log('getSize file path:', getSizePath);
-  res.set('Content-Type', 'application/javascript'); // Set the Content-Type header
-  res.sendFile(getSizePath);
-});
-
-
-
-
-
-
-app.get('/api/colors', (req, res) => {
-  // Query the database or fetch colors data from wherever it's stored
-  const colors = ['Red', 'Black', 'Gray', 'Blue', 'Green', 'Pink', 'Yellow', 'Orange', 'Silver', 'White']; // Example colors data
-  // Send the colors data as a response
-  res.json(colors);
-});
-
-app.get('/api/size', (req, res) => {
-  const size = ['Small', 'Medium', 'Large'];
-  // Logic to fetch size data from your database and send it as a response
-  res.json(size);
-});
-
-app.get('/api/availability', (req, res) => {
-  const availability = ['This product is available.', 'This product is not available.'];
-  // Logic to fetch size data from your database and send it as a response
-  res.json(availability);
-});
-
-app.get('/api/ammo', (req, res) => {
-  const ammo = ['Buckshot', 'Heavy Bullets', 'Flamer Fuel', 'Ice Crystals', 'Laser Crystals', 'Pellets', 'Photon Chargers', 'Pistol Ammo', 'Plasma Pods', "Revolver Bullets", 'Space Battery', 'The Sun(?)'];
-  // Logic to fetch size data from your database and send it as a response
-  res.json(ammo);
-});
-
-app.get('/api/type', (req, res) => {
-  const type = ['Other', 'Machine Gun', 'Pistol', 'Revolver', 'Rifle', 'Shotgun'];
-  // Logic to fetch size data from your database and send it as a response
-  res.json(type);
-});
-
-
-
-
-
-app.get('/populateGunCards.js', (req, res) => {
-  const populateGunCardsPath = path.join(__dirname, 'populateGunCards.js');
-  console.log('populateGunCards.js file path:', populateGunCardsPath);
-  res.sendFile(populateGunCardsPath);
-});
-
-
-app.get('/populateDropdown.js', (req, res) => {
-  const populateDropdownPath = path.join(__dirname, 'populateDropdown.js');
-  console.log('populateDropdown.js file path:', populateDropdownPath);
-  res.sendFile(populateDropdownPath);
-});
-
-
-// Serve static files with custom headers
-app.use(express.static('custom-api', {
-  setHeaders: (res, filePath) => {
-    if (filePath.endsWith('.css')) {
-      res.setHeader('Content-Type', 'text/css');
-    } else if (filePath.endsWith('.js')) {
-      res.setHeader('Content-Type', 'application/javascript');
-    }
-  }
-}));
-
-app.get('/gunFilter.js', (req, res) => {
-  const gunFilterPath = path.join(__dirname, 'gunFilter.js');
-  console.log('gunFilter.js file path:', gunFilterPath);
-  res.sendFile(gunFilterPath);
 });
 
 
