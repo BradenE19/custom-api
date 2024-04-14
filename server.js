@@ -103,17 +103,17 @@ app.get('/getColors.js', (req, res) => {
 
 
 
-app.get('/api/colors', (req, res) => {
+app.get('/api/color', (req, res) => {
   // Query the database or fetch colors data from wherever it's stored
-  const colors = ['Red', 'Blue', 'Green', 'Yellow', 'Orange', 'Silver']; // Example colors data
+  const color = ['Red', 'Blue', 'Green', 'Yellow', 'Orange', 'Silver']; // Example colors data
   // Send the colors data as a response
-  res.json(colors);
+  res.json(color);
 });
 
-app.get('/api/sizes', (req, res) => {
-  const sizes = ['Small', 'Medium', 'Large'];
+app.get('/api/size', (req, res) => {
+  const size = ['Small', 'Medium', 'Large'];
   // Logic to fetch size data from your database and send it as a response
-  res.json(sizes);
+  res.json(size);
 });
 
 app.get('/api/availability', (req, res) => {
@@ -126,6 +126,12 @@ app.get('/api/ammo', (req, res) => {
   const ammo = ['Buckshot', 'Heavy Bullets', 'Flamer Fuel', 'Ice Crystals', 'Laser Crystals', 'Pellets', 'Photon Chargers', 'Pistol Ammo', 'Plasma Pods', "Revolver Bullets", 'Space Battery', 'The Sun(?)'];
   // Logic to fetch size data from your database and send it as a response
   res.json(ammo);
+});
+
+app.get('/api/type', (req, res) => {
+  const type = ['Other', 'Machine Gun', 'Pistol', 'Revolver', 'Rifle', 'Shotgun'];
+  // Logic to fetch size data from your database and send it as a response
+  res.json(type);
 });
 
 
