@@ -19,54 +19,46 @@
 </head>
 <body>
     <body>
+
       <div class="container mt-5">
         <h1>Gun Filter</h1>
         <div class="row mt-3">
-            <div class="col-md-2">
-                <select class="form-control" id="sizeDropdown">
-                    <option value="All">Size</option>
-                    <option value="Small">Small</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Large">Large</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <select class="form-control" id="typeDropdown">
-                    <option value="All">Type</option>
-                    <option value="Other">Other</option>
-                    <option value="Machine Gun">Machine Gun</option>
-                    <!-- Add other type options here -->
-                </select>
-            </div>
-            <div class="col-md-2">
-                <select class="form-control" id="availabilityDropdown">
-                    <option value="All">Availability</option>
-                    <option value="This product is available.">Available</option>
-                    <option value="This product is not available.">Not Available</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <select class="form-control" id="ammoDropdown">
-                    <option value="All">Ammo</option>
-                    <option value="Buckshot">Buckshot</option>
-                    <!-- Add other ammo options here -->
-                </select>
-            </div>
-            <div class="col-md-2">
-                <select class="form-control" id="colorDropdown">
-                    <option value="All">Color</option>
-                    <option value="Red">Red</option>
-                    <!-- Add other color options here -->
-                </select>
-            </div>
-            <div id="gunCardsContainer" class="row mt-5">
-                <!-- Gun cards will be dynamically populated here -->
-            </div>
+          <div class="col-md-2">
+            <select class="form-control" id="sizeDropdown">
+              <option value="">Size</option>
+              <!-- Populate size options dynamically -->
+            </select>
+          </div>
+          <div class="col-md-2">
+            <select class="form-control" id="typeDropdown">
+              <option value="">Type</option>
+              <!-- Populate type options dynamically -->
+            </select>
+          </div>
+          <div class="col-md-2">
+            <select class="form-control" id="availabilityDropdown">
+              <option value="">Availability</option>
+              <!-- Populate availability options dynamically -->
+            </select>
+          </div>
+          <div class="col-md-2">
+            <select class="form-control" id="ammoDropdown">
+              <option value="">Ammo</option>
+              <!-- Populate ammo options dynamically -->
+            </select>
+          </div>
+          <div class="col-md-2">
+            <select class="form-control color-dropdown" id="colorDropdown">
+              <option value="">Color</option>
+              <!-- Populate color options dynamically -->
+            </select>
+          </div>
         </div>
-    </div>
+        <div id="gunCardsContainer" class="row mt-5">
+          <!-- Gun cards will be dynamically populated here -->
+      </div>
+      </div>
     
-      
-
 
   <footer>
     <div>

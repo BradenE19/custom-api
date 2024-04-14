@@ -73,9 +73,6 @@ function createGunCard(gun) {
                 <p class="card-text">Colors: ${gun.colors}</p>
                 <p class="card-text">Availability: ${gun.availability}</p>
                 <p class="card-text">Price: ${gun.price}</p>
-                <p class="card-text">Size: ${gun.size}</p>
-                <p class="card-text">Ammo: ${gun.ammo}</p>
-                <p class="card-text">Type: ${gun.type}</p>
                 <!-- Add more information as needed -->
             </div>
         </div>

@@ -14,6 +14,7 @@ async function handleDropdownChange() {
     const type = document.getElementById('typeDropdown').value;
     const ammo = document.getElementById('ammoDropdown').value;
     const colors = document.getElementById('colorDropdown').value;
+    
 
     try {
         const response = await fetch(`/api/guns?size=${size}&availability=${availability}&type=${type}&ammo=${ammo}&colors=${colors}`);
