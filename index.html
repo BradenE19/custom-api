@@ -6,13 +6,14 @@
   <title>Search Bar with Dropdown Menus</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js"></script>
   <script src="getColors.js"></script>
   <script src="populateGunCards.js"></script>
   <script src="getType.js"></script>
   <script src="getSize.js"></script>
   <script src="getAvailability.js"></script>
   <script src="getAmmo.js"></script>
+  <script src="gunFilter.js"></script>
+  <script src="populateDropdown.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -20,40 +21,44 @@
     <body>
 
       <div class="container mt-5">
-        <h1 class="mb-4">Galactic Black Market</h1>
-        <!-- Dropdown menus for each category -->
-        <div class="row">
-            <div class="col-md-3">
-                <select class="form-control" id="sizeDropdown">
-                    <option value="">Size</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select class="form-control" id="availabilityDropdown">
-                    <option value="">Availability</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select class="form-control" id="typeDropdown">
-                    <option value="">Type</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select class="form-control" id="ammoDropdown">
-                    <option value="">Ammo</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-              <select class="form-control" id="colorDropdown">
-                  <option value="">Color</option>
-              </select>
+        <h1>Gun Filter</h1>
+        <div class="row mt-3">
+          <div class="col-md-2">
+            <select class="form-control" id="sizeDropdown">
+              <option value="">Size</option>
+              <!-- Populate size options dynamically -->
+            </select>
+          </div>
+          <div class="col-md-2">
+            <select class="form-control" id="typeDropdown">
+              <option value="">Type</option>
+              <!-- Populate type options dynamically -->
+            </select>
+          </div>
+          <div class="col-md-2">
+            <select class="form-control" id="availabilityDropdown">
+              <option value="">Availability</option>
+              <!-- Populate availability options dynamically -->
+            </select>
+          </div>
+          <div class="col-md-2">
+            <select class="form-control" id="ammoDropdown">
+              <option value="">Ammo</option>
+              <!-- Populate ammo options dynamically -->
+            </select>
+          </div>
+          <div class="col-md-2">
+            <select class="form-control color-dropdown" id="colorDropdown">
+              <option value="">Color</option>
+              <!-- Populate color options dynamically -->
+            </select>
           </div>
         </div>
-        <!-- Container for displaying gun cards -->
         <div id="gunCardsContainer" class="row mt-5">
-            <!-- Gun cards will be dynamically populated here -->
-        </div>
-    </div>
+          <!-- Gun cards will be dynamically populated here -->
+      </div>
+      </div>
+    
 
   <footer>
     <div>

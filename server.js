@@ -91,11 +91,12 @@ app.get('/getAvailability.js', (req, res) => {
   res.sendFile(getAvailabilityPath);
 });
 
-app.get('/getColors.js', (req, res) => {
-  const getColorsPath = path.join(__dirname, 'getColors.js');
-  console.log('getColors file path:', getColorsPath);
+
+app.get('/getSize.js', (req, res) => {
+  const getSizePath = path.join(__dirname, 'getSize.js');
+  console.log('getSize file path:', getSizePath);
   res.set('Content-Type', 'application/javascript'); // Set the Content-Type header
-  res.sendFile(getColorsPath);
+  res.sendFile(getSizePath);
 });
 
 
@@ -103,11 +104,11 @@ app.get('/getColors.js', (req, res) => {
 
 
 
-app.get('/api/color', (req, res) => {
+app.get('/api/colors', (req, res) => {
   // Query the database or fetch colors data from wherever it's stored
-  const color = ['Red', 'Blue', 'Green', 'Yellow', 'Orange', 'Silver']; // Example colors data
+  const colors = ['Red', 'Black', 'Gray', 'Blue', 'Green', 'Pink', 'Yellow', 'Orange', 'Silver', 'White']; // Example colors data
   // Send the colors data as a response
-  res.json(color);
+  res.json(colors);
 });
 
 app.get('/api/size', (req, res) => {
@@ -145,17 +146,29 @@ app.get('/populateGunCards.js', (req, res) => {
 });
 
 
+app.get('/populateDropdown.js', (req, res) => {
+  const populateDropdownPath = path.join(__dirname, 'populateDropdown.js');
+  console.log('populateDropdown.js file path:', populateDropdownPath);
+  res.sendFile(populateDropdownPath);
+});
+
 
 // Serve static files with custom headers
 app.use(express.static('custom-api', {
   setHeaders: (res, filePath) => {
-      if (filePath.endsWith('.css')) {
-          res.setHeader('Content-Type', 'text/css');
-      } else if (filePath.endsWith('.js')) {
-          res.setHeader('Content-Type', 'application/javascript');
-      }
+    if (filePath.endsWith('.css')) {
+      res.setHeader('Content-Type', 'text/css');
+    } else if (filePath.endsWith('.js')) {
+      res.setHeader('Content-Type', 'application/javascript');
+    }
   }
 }));
+
+app.get('/gunFilter.js', (req, res) => {
+  const gunFilterPath = path.join(__dirname, 'gunFilter.js');
+  console.log('gunFilter.js file path:', gunFilterPath);
+  res.sendFile(gunFilterPath);
+});
 
 
 // Start the server

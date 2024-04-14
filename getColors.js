@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             // Process the colors data and update the DOM
-            data.forEach(color => {
-                const colorOption = createColorOption(color);
+            data.forEach(colors => {
+                const colorOption = createColorOption(colors);
                 document.querySelector('.color-dropdown').appendChild(colorOption);
             });
         })
