@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Cowboys1&',
+  password: 'root',
   database: 'galacticmarketdatabase'
 });
 
