@@ -1,50 +1,26 @@
-/* Custom CSS Styles */
-
-/* Resetting default margin and padding for the whole document */
-body, h1, p {
-    margin: 0;
-    padding: 0;
+html, body {
+    height: 100%;
   }
-  
-  /* Setting a background color and font family for the body */
-  body {
-    background-color: #f8f9fa; /* Light gray background */
-    font-family: Arial, sans-serif; /* Default font family */
-    line-height: 1.6; /* Line height for better readability */
-    color: #333; /* Default text color */
-  }
-  
-  .header{
-    outline: blue solid 3px;
-  }
-  /* Adding some spacing around the container */
   .container {
-    padding: 20px;
-  }
-
-  .searcharea {
-    outline: green solid 3px;
-  }
-
-  .gunimgdiv {
-    outline: solid 3px red;
-  }
-
-  .guninfodiv {
-    outline: purple solid 3px;
-  }
-
-  .searchbox {
-    outline: orange solid 3px;
-  }
-  
-  .textdiv {
     display: flex;
-    outline: blue solid 3px;
+    flex-direction: column;
+    min-height: 90vh;
+  }
+  .content {
+    flex: 1;
+  }
+  .footer {
+    background-color: #343a40; /* Dark grey color */
+    color: #ffffff; /* White text color */
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+    width: 100%;
     height: 100%;
   }
 
-  .textdiv .col-lg {
-    align-self: flex-end;
-    outline: blue solid 3px;
-}
+  .dropdown {
+    margin-right: 10px;
+    margin-top: 10px;
+    /* Add some spacing between dropdowns */
+  }

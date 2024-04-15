@@ -3,47 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Page</title>
+  <title>Search Bar with Dropdown Menus</title>
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
+  <script src="getColors.js"></script>
+  <script src="populateGunCards.js"></script>
+  <script src="getType.js"></script>
+  <script src="getSize.js"></script>
+  <script src="getAvailability.js"></script>
+  <script src="getAmmo.js"></script>
+  <script src="gunFilter.js"></script>
+  <script src="populateDropdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <header class="header container">
-        <div class="container welcomebox">
-            <div>
-                <div><h1>Welcome to the Galactic Black Market</h1></div>
-                <div><p>We sell a variety of dangerous and powerful space guns to assist with your less than legal needs. Type in the search bar below for what you would like.</p></div>
-            </div>
-            <!-- Search Bar -->
-<div class="container headerbox">
-    <div class="container headerbox text-center"> <!-- Added 'text-center' class to center the search bar -->
-        <form class="form-inline my-4 d-flex justify-content-center"> <!-- Added 'd-flex justify-content-center' classes to center the form -->
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 400px;"> <!-- Adjusted width to make the search bar longer -->
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-    
-</header>
-<body class="container-fluid">
-    <div class="container searcharea container-lg">
-        <div class="searchbox container-fluid row">
-            <div class="gunimgdiv col-lg"><img src="Gun_Images\gun1.jpg" width="400px" alt=""></div>
-            <div class="guninfodiv col-lg">
-                    <div class="textdiv row">
-                    <p class="col-12">"Gun Name goes here"</p>
-                    <p class="col-12">"Description goes here"</p>
-                    <p class="col-lg">"Price goes here"</p>
-                    <p class="col-lg">Availabillity goes here"</p>
-                    </div>
-            </div>
-        </div>
-    </div>
-</body>
+    <body>
 
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <div class="container mt-5">
+        <h1>Gun Filter</h1>
+        <div class="row mt-3">
+          <div class="col-md-2">
+            <h1>Size</h1>
+            <select class="form-control" id="sizeDropdown">
+              <option value="">Size</option>
+              <!-- Populate size options dynamically -->
+            </select>
+          </div>
+          <div class="col-md-2">
+            <h1>Type</h1>
+            <select class="form-control" id="typeDropdown">
+              <option value="">Type</option>
+              <!-- Populate type options dynamically -->
+            </select>
+          </div>
+          <div class="col-md-2">
+            <h1>Available</h1>
+            <select class="form-control" id="availabilityDropdown">
+              <option value="">Availability</option>
+              <!-- Populate availability options dynamically -->
+            </select>
+          </div>
+          <div class="col-md-2">
+            <h1>Ammo</h1>
+            <select class="form-control" id="ammoDropdown">
+              <option value="">Ammo</option>
+              <!-- Populate ammo options dynamically -->
+            </select>
+          </div>
+          <div class="col-md-2">
+            <h1>Color</h1>
+            <select class="form-control color-dropdown" id="colorDropdown">
+              <option value="">Color</option>
+              <!-- Populate color options dynamically -->
+            </select>
+          </div>
+        </div>
+        <div id="gunCardsContainer" class="row mt-5">
+          <!-- Gun cards will be dynamically populated here -->
+      </div>
+      </div>
+    
+
+  <footer>
+    <div>
+        <p>The Galactic Black Market</p>
+    </div>
+  </footer>
 </body>
 </html>
