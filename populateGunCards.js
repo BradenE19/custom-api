@@ -66,7 +66,7 @@ function createGunCard(gun) {
     // Populate the gun card with gun information
     gunCard.innerHTML = `
         <div class="card">
-            <img src="${gun.gun_image}" class="card-img-top" alt="Gun Image">
+            <img src="${gun.gun_img}" class="card-img-top" alt="Gun Image">
             <div class="card-body">
                 <h5 class="card-title">${gun.gun_name}</h5>
                 <p class="card-text">${gun.description}</p>

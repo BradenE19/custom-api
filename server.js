@@ -12,6 +12,8 @@ const connection = mysql.createConnection({
   database: 'galacticmarketdatabase'
 });
 
+app.use('/Gun_Images', express.static('Gun_Images'));
+
 // Connect to MySQL database
 connection.connect((err) => {
   if (err) {
