@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'custom-api')));
 
 // Route to serve the HTML file
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'test.html'));
 });
 
 // Route to serve the CSS file
