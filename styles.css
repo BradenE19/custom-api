@@ -1,7 +1,9 @@
 html, body {
     height: 100%;
   }
-  .container {
+  .product_container {
+    background-image: url("./Gun_Images/miscImages/Bob_in_Space.jpg");
+    background-size: contain;
     display: flex;
     flex-direction: column;
     min-height: 90vh;
@@ -24,3 +26,11 @@ html, body {
     margin-top: 10px;
     /* Add some spacing between dropdowns */
   }
+
+  .w3-sidebar {
+  }
+  
+  .w3-sidebar a.w3-bar-item {
+     /* Adjust the margin as per your requirement */
+  }
+  
